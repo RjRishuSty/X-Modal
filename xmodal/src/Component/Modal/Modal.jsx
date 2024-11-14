@@ -62,7 +62,7 @@ const Modal = ({ setIsOpen, isOpen }) => {
         <h1 className="modal-heading">Fill Details</h1>
         <form onSubmit={handlerSubmit}>
           <div className="form-group">
-            <label htmlFor="username">Username</label>
+            <label for="username">Username</label>
             <input
               type="text"
               id="username"
@@ -74,7 +74,7 @@ const Modal = ({ setIsOpen, isOpen }) => {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="email">Email Address</label>
+            <label for="email">Email Address</label>
             <input
               type="email"
               id="email"
@@ -86,7 +86,7 @@ const Modal = ({ setIsOpen, isOpen }) => {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="phone">Phone Number</label>
+            <label for="phone">Phone Number</label>
             <input
               type="number"
               id="phone"
@@ -98,7 +98,7 @@ const Modal = ({ setIsOpen, isOpen }) => {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="dob">Date of Birth</label>
+            <label for="dob">Date of Birth</label>
             <input
               type="date"
               id="dob"

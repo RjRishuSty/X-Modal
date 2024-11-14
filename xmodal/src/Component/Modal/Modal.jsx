@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 const Modal = ({setIsOpen,isOpen}) => {
   const [formData, setFormData] = useState({
     username: "",
-    email: "",
+    email: " ",
     phone: "",
     dob: "",
   });

@@ -1,12 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
-const Modal = ({setIsOpen,isOpen}) => {
+const Modal = ({ setIsOpen, isOpen }) => {
   const [formData, setFormData] = useState({
     username: "",
     email: " ",
     phone: "",
     dob: "",
   });
+  const modalRef = useRef();
+  const handlerOutSide = () => {
+    if (modalRef.current) {
+      if (modalRef.current.classList.contains("modal")) {
+        setIsOpen(!isOpen);
+      }
+    }
+  };
   const handleChange = (e) => {
     setFormData((prev) => ({ ...prev, [e.target.id]: e.target.value }));
   };
@@ -43,15 +51,18 @@ const Modal = ({setIsOpen,isOpen}) => {
     }
   }, []);
 
-  console.log("Form", formData);
+  // console.log("modal", modalRef);
+
   return (
-    <div className="modal">
+    <div className="modal" ref={modalRef} onClick={handlerOutSide}>
       <div className="modal-content">
-        <button className="closebtn" onClick={()=>setIsOpen(!isOpen)}>X</button>
+        <button className="closebtn" onClick={() => setIsOpen(!isOpen)}>
+          X
+        </button>
         <h1 className="modal-heading">Fill Details</h1>
         <form onSubmit={handlerSubmit}>
           <div className="form-group">
-            <label for="username">Username</label>
+            <label htmlFor="username">Username</label>
             <input
               type="text"
               id="username"
@@ -63,7 +74,7 @@ const Modal = ({setIsOpen,isOpen}) => {
             />
           </div>
           <div className="form-group">
-            <label for="email">Email Address</label>
+            <label htmlFor="email">Email Address</label>
             <input
               type="email"
               id="email"
@@ -75,7 +86,7 @@ const Modal = ({setIsOpen,isOpen}) => {
             />
           </div>
           <div className="form-group">
-            <label for="phone">Phone Number</label>
+            <label htmlFor="phone">Phone Number</label>
             <input
               type="number"
               id="phone"
@@ -87,7 +98,7 @@ const Modal = ({setIsOpen,isOpen}) => {
             />
           </div>
           <div className="form-group">
-            <label for="dob">Date of Birth</label>
+            <label htmlFor="dob">Date of Birth</label>
             <input
               type="date"
               id="dob"

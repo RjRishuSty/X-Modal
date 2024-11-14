@@ -11,7 +11,7 @@ const App = () => {
       <h1 className='heading'>User Details Modal</h1>
       <button type='button' className='openButton' onClick={()=>setIsOpen(!isOpen)}>Open Form</button>
       {
-        isOpen?<Modal/>:''
+        isOpen?<Modal setIsOpen={setIsOpen} isOpen={isOpen}/>:''
       }
     </div>
   )
